@@ -1,0 +1,23 @@
+ErrorDocument 403 /project24308006/page133875896.html
+ErrorDocument 404 /project24308006/page133875896.html
+
+DirectoryIndex page74570351.html
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/project24308006/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^vloisl$ page74570351.html [NC]
+RewriteRule ^vloisl/$ page74570351.html [NC]
+
+RewriteRule ^portfolio-vloisl$ page74570363.html [NC]
+RewriteRule ^portfolio-vloisl/$ page74570363.html [NC]
+
+RewriteRule ^dogovor-vloisl$ page74570353.html [NC]
+RewriteRule ^dogovor-vloisl/$ page74570353.html [NC]
+
+RewriteRule ^cookie-vloisl$ page74570357.html [NC]
+RewriteRule ^cookie-vloisl/$ page74570357.html [NC]
+
+

@@ -1,0 +1,17 @@
+User-Agent: *
+Disallow: /page74570353.html
+Disallow: /dogovor-vloisl
+Disallow: /page74570357.html
+Disallow: /cookie-vloisl
+Disallow: /tilda/form*
+Disallow: /tilda/rec*
+Disallow: /tilda/click*
+Disallow: /tilda/scroll*
+Disallow: /tilda/popup*
+Disallow: /tilda/cart*
+Disallow: /tilda/product*
+Disallow: /tilda/event*
+Disallow:
+
+
+Sitemap: http://vloisl.tilda.ws/sitemap.xml
