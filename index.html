@@ -185,6 +185,41 @@
     </div>
 </header>
 
+<!-- ИСПРАВЛЕННЫЙ ГЛАВНЫЙ ЭКРАН С ВАШИМ ФОНОМ -->
+<style>
+    /* Дополнение к стилям: оживляем обложку */
+    .hero-section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        /* Ставим вашу оригинальную фотографию на фон */
+        background-image: url('images/tild6362-3234-4630-a231-323666376438__20250402_112135.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed; /* Эффект параллакса при скролле */
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    /* Затемнение поверх фото, чтобы белый текст читался идеально */
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(17,17,17,0.8));
+        z-index: 1;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 2; /* Поднимаем текст над затемнением */
+    }
+</style>
+
 <section class="hero-section">
     <div class="hero-content">
         <h1>VLOISL</h1>
@@ -192,6 +227,8 @@
         <a href="#services" class="cta-btn">Смотреть услуги</a>
     </div>
 </section>
+<!-- КОНЕЦ ОБНОВЛЕННОГО ЭКРАНА -->
+
 <!-- НАЧАЛО ЧАСТИ 2: КРУГОВАЯ 3D-КАРУСЕЛЬ УСЛУГ -->
 <style>
     .services-section {
