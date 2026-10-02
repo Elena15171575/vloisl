@@ -622,72 +622,70 @@
     }
 </script>
 <!-- КОНЕЦ ВТОРОЙ ЧАСТИ КОДА -->
-    <!-- НАЧАЛО СЕКЦИИ С ВИДЕОЭКРАНОМ -->
+ <!-- НАЧАЛО ОБНОВЛЕННОГО ПОЛНОЭКРАННОГО ВИДЕОБЛОКА -->
 <style>
+    /* Стили широкоформатного экрана Шоурила */
     .video-section {
-        padding: 100px 20px;
-        background-color: var(--bg-dark); /* Глубокий темный фон */
-        border-bottom: 2px solid var(--main-blue); /* Наша фирменная серо-синяя линия */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000000;
+        border-bottom: 2px solid var(--main-blue);
+        position: relative;
+        overflow: hidden;
         box-sizing: border-box;
     }
-
     .video-container {
         width: 100%;
-        max-width: 960px; /* Идеальный кинотеатральный размер */
-        aspect-ratio: 16 / 9; /* Пропорции экрана 16:9 */
-        background-color: #000000;
-        border: 2px solid var(--main-blue); /* Фирменная серо-синяя рамка */
-        border-radius: 6px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(69, 99, 126, 0.2);
-        overflow: hidden;
+        height: 100%;
         position: relative;
+        overflow: hidden;
     }
-
-    /* Стили для самого плеера */
     .video-player {
         width: 100%;
         height: 100%;
+        border: none;
         display: block;
-        object-fit: cover;
+        object-fit: cover; /* Заполнение экрана без черных полос */
+    }
+    /* Фиксированный заголовок поверх плеера */
+    .video-section .section-title {
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        margin-bottom: 0;
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9);
+        pointer-events: none; /* Не мешает кликать по видео */
     }
 
-    /* Адаптивность для мобильных телефонов */
+    /* Умная адаптация под мобильные телефоны */
     @media screen and (max-width: 768px) {
         .video-section {
-            padding: 60px 15px;
+            height: auto;
+            aspect-ratio: 16 / 9; /* На смартфонах переключается в кино-формат без обрезки кадра */
+        }
+        .video-section .section-title {
+            top: 15px;
+            font-size: 22px;
         }
     }
 </style>
 
 <section class="video-section" id="showreel">
     <h2 class="section-title">Наш <span>Шоурил</span></h2>
-    
     <div class="video-container">
-        <!-- ВАРИАНТ А: Если видео файлом лежит в репозитории (например, video.mp4) -->
-        <!-- Раскомментируйте код ниже, если загрузите видео прямо на GitHub -->
-        <!-- 
-        <video class="video-player" controls preload="metadata" poster="images/tild6362-3234-4630-a231-323666376438__20250402_112135.jpg">
-            <source src="video/showreel.mp4" type="video/mp4">
-            Ваш браузер не поддерживает встроенные видео.
-        </video> 
-        -->
-
-        <!-- ВАРИАНТ Б: Стандартный плеер-заглушка (сейчас активен он) -->
-        <!-- Вы можете заменить src="about:blank" на ссылку из YouTube (формата /embed/) или Vimeo -->
+        <!-- Ваше потрясающее видео со встроенным плеером YouTube -->
         <iframe class="video-player" 
-                src="https://youtu.be/_m35VWZy8as?si=Ek5332HjPR2aqcBu" 
+                src="https://youtube.com" 
                 title="VLOISL Showreel" 
-                frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowfullscreen>
         </iframe>
     </div>
 </section>
-<!-- КОНЕЦ СЕКЦИИ С ВИДЕОЭКРАНОМ -->
+<!-- КОНЕЦ ОБНОВЛЕННОГО ПОЛНОЭКРАННОГО ВИДЕОБЛОКА -->
+
 
 <!-- НАЧАЛО ЧАСТИ 3: СЕКЦИЯ О СТУДИИ, ПОДВАЛ И СКРИПТ БУРГЕРА -->
 <style>
