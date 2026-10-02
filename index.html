@@ -622,31 +622,58 @@
     }
 </script>
 <!-- КОНЕЦ ВТОРОЙ ЧАСТИ КОДА -->
- <!-- НАЧАЛО ОБНОВЛЕННОГО ПОЛНОЭКРАННОГО ВИДЕОБЛОКА -->
+ <!-- НАЧАЛО ОБНОВЛЕННОГО ПОЛНОЭКРАННОГО ВИДЕОБЛОКА С ВЫСОКИМ КАЧЕСТВОМ -->
 <style>
-    /* Стили широкоформатного экрана Шоурила */
+    /* Полноэкранный контейнер Шоурила */
     .video-section {
+        position: relative;
         width: 100vw;
         height: 100vh;
         background-color: #000000;
         border-bottom: 2px solid var(--main-blue);
-        position: relative;
         overflow: hidden;
         box-sizing: border-box;
     }
+
+    /* Адаптивный кокон для принудительного растягивания плеера */
     .video-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
         width: 100%;
         height: 100%;
-        position: relative;
-        overflow: hidden;
+        transform: translate(-50%, -50%);
     }
+
+    /* Растягиваем плеер, перекрывая внутренние ограничения YouTube */
     .video-player {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         border: none;
         display: block;
-        object-fit: cover; /* Заполнение экрана без черных полос */
     }
+
+    /* Адаптация под широкие экраны компьютеров (убираем полосы по бокам) */
+    @media (min-aspect-ratio: 16/9) {
+        .video-player {
+            height: 56.25vw;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    /* Адаптация под узкие экраны (убираем полосы сверху и снизу) */
+    @media (max-aspect-ratio: 16/9) {
+        .video-player {
+            width: 177.78vh;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
     /* Фиксированный заголовок поверх плеера */
     .video-section .section-title {
         position: absolute;
@@ -656,14 +683,28 @@
         z-index: 10;
         margin-bottom: 0;
         text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9);
-        pointer-events: none; /* Не мешает кликать по видео */
+        pointer-events: none;
     }
 
-    /* Умная адаптация под мобильные телефоны */
+    /* Умная и плавная адаптация под мобильные телефоны */
     @media screen and (max-width: 768px) {
         .video-section {
             height: auto;
-            aspect-ratio: 16 / 9; /* На смартфонах переключается в кино-формат без обрезки кадра */
+            aspect-ratio: 16 / 9; /* На смартфонах переключается в чистый киноформат без искажений */
+        }
+        .video-container {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: none;
+        }
+        .video-player {
+            position: relative;
+            transform: none;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
         }
         .video-section .section-title {
             top: 15px;
@@ -675,9 +716,9 @@
 <section class="video-section" id="showreel">
     <h2 class="section-title">Наш <span>Шоурил</span></h2>
     <div class="video-container">
-        <!-- Ваше потрясающее видео со встроенным плеером YouTube -->
+        <!-- Адаптивный плеер с запросом максимального качества vq=hd1080 -->
         <iframe class="video-player" 
-                src="https://www.youtube.com/embed/yHSZrOv6kMA" 
+                src="https://www.youtube.com/enbed/yHSZrOv6kMA" 
                 title="VLOISL Showreel" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowfullscreen>
