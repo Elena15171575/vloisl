@@ -687,37 +687,38 @@
 <!-- КОНЕЦ ОБНОВЛЕННОГО ПОЛНОЭКРАННОГО ВИДЕОБЛОКА -->
 
 
-<!-- НАЧАЛО ЧАСТИ 3: СЕКЦИЯ О СТУДИИ, ПОДВАЛ И СКРИПТ БУРГЕРА -->
+<!-- НАЧАЛО ОБНОВЛЕННОГО ПОДВАЛА С ФОНОМ И ЗАТЕМНЕНИЕМ -->
 <style>
-    .about-section {
-        padding: 100px 20px;
-        background-color: var(--bg-dark);
-        border-bottom: 1px solid var(--main-blue);
-        box-sizing: border-box;
-    }
-    .about-container {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-    }
-    .about-text {
-        font-size: 18px;
-        color: var(--text-muted);
-        line-height: 1.8;
-    }
-    .about-text strong {
-        color: var(--text-white);
-    }
-
-    /* Стилизация подвала в тонах главной страницы */
+    /* Подвал с фоновым фото и глубоким затемнением */
     .custom-footer {
-        background-color: var(--main-blue);
+        position: relative;
+        background-image: url('images/tild6362-3234-4630-a231-323666376438__20250402_112135.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed; /* Эффект параллакса, как на обложке */
         padding: 60px 20px;
         font-family: Arial, sans-serif;
         box-sizing: border-box;
         color: var(--text-white);
+        overflow: hidden;
     }
+    
+    /* Очень плотное темное наложение поверх фото в подвале для читаемости */
+    .custom-footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(17, 17, 17, 0.85), rgba(0, 0, 0, 0.95));
+        z-index: 1;
+    }
+    
+    /* Поднимаем контент подвала над фоновым фото */
     .footer-container {
+        position: relative;
+        z-index: 2;
         max-width: 1200px;
         margin: 0 auto;
         display: flex;
@@ -745,7 +746,7 @@
     }
     .footer-demo-tag {
         font-size: 11px;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.4);
         border: 1px solid var(--text-white);
         padding: 4px 8px;
         display: inline-block;
@@ -779,10 +780,6 @@
         color: var(--text-white);
         text-decoration: underline;
         font-weight: 700;
-        transition: opacity 0.3s;
-    }
-    .footer-info a:hover {
-        opacity: 0.8;
     }
     .footer-bottom {
         display: flex;
@@ -793,12 +790,55 @@
         font-size: 12px;
         color: rgba(255, 255, 255, 0.7);
     }
-
-    @media screen and (max-width: 768px) {
-        .footer-top { flex-direction: column; }
-        .footer-bottom { flex-direction: column; text-align: center; }
-    }
 </style>
+
+<footer class="custom-footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">VLOISL</div>
+                <div class="footer-demo-tag">Демонстрационный образец</div>
+                <div class="footer-legal-text">Данный site разработан исключительно в качестве демонстрационного образца веб-разработки студии САЙТЛАЙМ и не имеет целью ведение коммерческой деятельности.</div>
+            </div>
+            <div class="footer-info">
+                <strong>Образец студии //</strong>
+                <div>Разработчик: <a href="https://saitlaim.ru" target="_blank">САЙТЛАЙМ (saitlaim.ru)</a></div>
+                <br>
+                <strong>Реквизиты владельца //</strong>
+                <div>ИП Воробьева Елена Борисовна</div>
+                <div>ОГРН: 324508100020542</div>
+                <div>ИНН: 691505013783</div>
+                <div>г. Мытищи</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© VLOISL / САЙТЛАЙМ, 2022. Все права защищены.</div>
+            <div>Образец автора</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Скрипт мобильного бургера
+    document.addEventListener('DOMContentLoaded', function() {
+        var burger = document.getElementById('burgerButton'), 
+            menu = document.getElementById('navMenu'), 
+            links = document.querySelectorAll('.nav-link');
+        if (burger && menu) {
+            function toggleMenu() { 
+                burger.classList.toggle('active'); 
+                menu.classList.toggle('active'); 
+                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : ''; 
+            }
+            burger.addEventListener('click', toggleMenu);
+            links.forEach(l => l.addEventListener('click', () => { if(menu.classList.contains('active')) toggleMenu(); }));
+        }
+    });
+</script>
+</body>
+</html>
+<!-- КОНЕЦ ОБНОВЛЕННОГО ПОДВАЛА С ФОНОМ И ЗАТЕМНЕНИЕМ -->
+
 
 <section class="about-section" id="about">
     <div class="about-container">
