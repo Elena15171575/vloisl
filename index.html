@@ -622,6 +622,73 @@
     }
 </script>
 <!-- КОНЕЦ ВТОРОЙ ЧАСТИ КОДА -->
+    <!-- НАЧАЛО СЕКЦИИ С ВИДЕОЭКРАНОМ -->
+<style>
+    .video-section {
+        padding: 100px 20px;
+        background-color: var(--bg-dark); /* Глубокий темный фон */
+        border-bottom: 2px solid var(--main-blue); /* Наша фирменная серо-синяя линия */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .video-container {
+        width: 100%;
+        max-width: 960px; /* Идеальный кинотеатральный размер */
+        aspect-ratio: 16 / 9; /* Пропорции экрана 16:9 */
+        background-color: #000000;
+        border: 2px solid var(--main-blue); /* Фирменная серо-синяя рамка */
+        border-radius: 6px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(69, 99, 126, 0.2);
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Стили для самого плеера */
+    .video-player {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    /* Адаптивность для мобильных телефонов */
+    @media screen and (max-width: 768px) {
+        .video-section {
+            padding: 60px 15px;
+        }
+    }
+</style>
+
+<section class="video-section" id="showreel">
+    <h2 class="section-title">Наш <span>Шоурил</span></h2>
+    
+    <div class="video-container">
+        <!-- ВАРИАНТ А: Если видео файлом лежит в репозитории (например, video.mp4) -->
+        <!-- Раскомментируйте код ниже, если загрузите видео прямо на GitHub -->
+        <!-- 
+        <video class="video-player" controls preload="metadata" poster="images/tild6362-3234-4630-a231-323666376438__20250402_112135.jpg">
+            <source src="video/showreel.mp4" type="video/mp4">
+            Ваш браузер не поддерживает встроенные видео.
+        </video> 
+        -->
+
+        <!-- ВАРИАНТ Б: Стандартный плеер-заглушка (сейчас активен он) -->
+        <!-- Вы можете заменить src="about:blank" на ссылку из YouTube (формата /embed/) или Vimeo -->
+        <iframe class="video-player" 
+                src="https://youtu.be/_m35VWZy8as?si=Ek5332HjPR2aqcBu" 
+                title="VLOISL Showreel" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+        </iframe>
+    </div>
+</section>
+<!-- КОНЕЦ СЕКЦИИ С ВИДЕОЭКРАНОМ -->
+
 <!-- НАЧАЛО ЧАСТИ 3: СЕКЦИЯ О СТУДИИ, ПОДВАЛ И СКРИПТ БУРГЕРА -->
 <style>
     .about-section {
